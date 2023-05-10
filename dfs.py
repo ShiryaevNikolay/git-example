@@ -21,19 +21,23 @@ def createGraph(edges):
         graph[from_vertex][key_neighbors].append(to_vertex)
     return graph
 
-# Поиска в глубину
-def dfs(vertex, depth = []):
+# Поиск в глубину
+def dfs(start_vertex, end_vertex, depth = []):
     global graph, depths
 
-    depth.append(vertex)
+    depth.append(start_vertex)
 
-    graph[vertex][key_visited] = True
-    for neighbor in graph[vertex][key_neighbors]:
+    graph[start_vertex][key_visited] = True
+
+    if start_vertex == end_vertex:
+        return
+
+    for neighbor in graph[start_vertex][key_neighbors]:
         if not graph[neighbor][key_visited]:
-            dfs(neighbor, depth)
+            dfs(neighbor, end_vertex, depth)
             depths.append(depth.copy())
             graph[neighbor][key_visited] = False
-            depth.remove(vertex)
+            depth.remove(start_vertex)
 
 # input = "4 2, 1 3, 2 4"
 
@@ -45,6 +49,11 @@ graph = createGraph(edges)
 
 depths = []
 
-dfs('1')
+dfs('2', '4')
 
-print(f'Результат: {depths}')
+max_depth = []
+for depth in depths:
+    if len(depth) > len(max_depth):
+        max_depth = depth
+
+print(f'Результат: {len(max_depth) - 1}')
