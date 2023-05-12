@@ -23,7 +23,7 @@ def createGraph(edges):
         graph[from_vertex][key_neighbors].append(to_vertex)
     return graph
 
-# Поиск в глубину
+# Алгоритм поиск в глубину
 def dfs(start_vertex, end_vertex, depth = []):
     global graph, depths
 
