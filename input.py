@@ -5,7 +5,9 @@ def inputTargetVerteces():
     correct_data = False
     while not correct_data:
         input_target_verteces = input("Ввердите стартовую вершину и конечную вершину в формате \"a b\": ")
+        
         verteces = input_target_verteces.split(" ")
+        
         if len(verteces) != 2:
             continue
 
