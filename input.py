@@ -1,4 +1,7 @@
 def inputTargetVerteces():
+    """
+    Обрабатывает пользовательский ввод стартовой и конечной вершин
+    """
     correct_data = False
     while not correct_data:
         input_target_verteces = input("Ввердите стартовую вершину и конечную вершину в формате \"a b\": ")
@@ -18,4 +21,4 @@ def inputTargetVerteces():
             continue
 
         correct_data = True
-    return (start_vertex, end_vertex)
+    return str(start_vertex), str(end_vertex)

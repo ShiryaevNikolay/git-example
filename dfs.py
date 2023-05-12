@@ -43,17 +43,23 @@ def dfs(start_vertex, end_vertex, depth = []):
 
 # input = "4 2, 1 3, 2 4"
 
+# Пользовательский ввод
 input_edges = input("Введите пары смежных вершин через ',': ")
 start_vertex, end_vertex = inputTargetVerteces()
 
+# Преобразовывает пользовательский ввод в массив смежных вершин
 edges = [edge.strip().split(' ') for edge in input_edges.split(',')]
 
+# Создается граф
 graph = createGraph(edges)
 
+# Содержит массивы, полученные при обходе в глубину
 depths = []
 
-dfs('2', '4')
+# Поиск в глубину
+dfs(start_vertex, end_vertex)
 
+# Находит максимальную глубину
 max_depth = []
 for depth in depths:
     if len(depth) > len(max_depth):
