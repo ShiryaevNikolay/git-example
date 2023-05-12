@@ -1,3 +1,5 @@
+from input import inputTargetVerteces
+
 key_visited = 'visited'
 key_neighbors = 'neighbors'
 
@@ -42,6 +44,7 @@ def dfs(start_vertex, end_vertex, depth = []):
 # input = "4 2, 1 3, 2 4"
 
 input_edges = input("Введите пары смежных вершин через ',': ")
+start_vertex, end_vertex = inputTargetVerteces()
 
 edges = [edge.strip().split(' ') for edge in input_edges.split(',')]
 
